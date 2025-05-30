@@ -45,7 +45,7 @@ RU: В данном репозитории представлены лабора
   `English`  
 - ❌[Белорусский язык]() (профессиональная лексика)  
   (Дапиро Т.П.)    
-- [ДМ]() - Дискретная математика  
+- ✅[ДМ](https://github.com/byaketava/bsuir-cmsn-labs/tree/main/2nd%20term/%D0%94%D0%9C) - Дискретная математика  
   (Поттосин Ю.В.)  
   `discrete math`  
 - ✅[МА](https://github.com/byaketava/bsuir-cmsn-labs/tree/main/1st%20term/%D0%9C%D0%90) - Математический анализ    
