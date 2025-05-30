@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Board">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAgCAgAAAAAAIAAAAAAAQQIAAAIIAAACACAAA=</HashCode>
+      <FileName>Board.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAAAAQAAAIAIAAAgQAAAAAAAAAAAACAAAQAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cell">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAABGAAAAAAAAAAAAAABgAGAAAAA=</HashCode>
+      <FileName>Cell.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkIkgAkMBQAQAQAYAIBAAAmACAAKAQAACEICE4g=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOver">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAggBQAAgAAQAAAAAAAIAAQAkAACIYAAAAAAACEAg=</HashCode>
+      <FileName>GameOver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameSound">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAABAAACggAAAEAAAAAAAAAA=</HashCode>
+      <FileName>GameSound.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IPiece">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JPiece">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>JPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeaderBoard">
+    <Position X="14.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAgJAAAgAAAAAQAAIAAAAAAgAAAAIQAAAAAgAIAA=</HashCode>
+      <FileName>LeaderBoard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LPiece">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgAAAAhBAAAAgAAAAAAAAAAIACAIAAAAAAAAAgg=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NextPieceBoard">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAUAAAAAAAAIAIAAAAAAAAAAgAgAAAAAAAAA=</HashCode>
+      <FileName>NextPieceBoard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OPiece">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Piece">
+    <Position X="5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIBAAAAAAgAAAAKSIAAACgAFAACAAIIAKAQARAA=</HashCode>
+      <FileName>Piece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PieceCreating">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAACAAAAAABAAAAAAAgACAAABAAAAA=</HashCode>
+      <FileName>PieceCreating.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources">
+    <Position X="16.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEIEAAAgAAAAAAAABAAAAEAAAIAAAAAAAQAAA=</HashCode>
+      <FileName>Resources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShadowPiece">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShadowPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SingleScore">
+    <Position X="19.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAQAAAAAQQAAAIIAAAAAAAAAACQAAAAAAAEAAA=</HashCode>
+      <FileName>SingleScore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SPiece">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>SPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPiece">
+    <Position X="3.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZPiece">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ZPiece.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="gamePart">
+    <Position X="11" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAACAAAAKAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="pieceEnum">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAABBALIUAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
