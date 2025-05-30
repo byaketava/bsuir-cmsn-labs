@@ -25,7 +25,7 @@ RU: В данном репозитории представлены лабора
 - ✅[АиЛОЦУ](https://github.com/byaketava/bsuir-cmsn-labs/tree/main/1st%20term/%D0%90%D0%B8%D0%9B%D0%9E%D0%A6%D0%A3) - Арифметические и логические основы цифровых устройств  
   (Луцик Ю.А.)  
   `binary arithmetic` `logical foundations` `digital devices`  
-- [ИстБГ]() - История белорусской государственности  
+- ✅[ИстБГ](https://github.com/byaketava/bsuir-cmsn-labs/tree/main/1st%20term/%D0%98%D1%81%D1%82%D0%91%D0%93) - История белорусской государственности  
   (Литвиновская Ю.И.)  
   `history` `nation`  
 - ❌[ЛАиАГ]() - Линейная алгебра и аналитическая геометрия    
