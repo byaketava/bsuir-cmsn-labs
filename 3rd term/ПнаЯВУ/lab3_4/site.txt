@@ -1,0 +1,79 @@
+What is a variable in programming?
+It is a container for storing data.
+It is a function that performs a specific operation.
+It is a special symbol representing a specific value.
+It is the name of a program.
+
+What are the main data types in programming?
+Numbers (integer, float).
+Strings.
+Boolean values (true/false).
+Arrays.
+
+What are conditional statements in programming?
+These are operators that allow you to perform certain actions based on a condition.
+These are operators used to declare variables.
+These are operators that allow you to perform cyclic actions.
+These are operators that allow you to display data on the screen.
+
+What is a function in programming?
+It is a set of instructions that perform a specific task.
+It is a data type that stores information.
+It is a special symbol representing a specific value.
+It is the name of a program.
+
+5. What are loops in programming?
+These are operators that allow you to perform certain actions multiple times.
+These are operators used to declare variables.
+These are operators that allow you to display data on the screen.
+These are operators that allow you to perform actions based on a condition.
+
+What are arrays in programming?
+They are data structures that allow you to store a collection of elements of the same type.
+These are operators that allow you to perform certain actions multiple times.
+These are operators used to declare variables.
+These are operators that allow you to display data on the screen.
+
+What is Object-Oriented Programming (OOP)?
+It is an approach to software development based on the use of objects and classes.
+It is a data type that stores information.
+It is a special symbol representing a specific value.
+It is the name of a program.
+
+What is recursion in programming?
+It is the process in which a function calls itself.
+These are operators used to declare variables.
+These are operators that allow you to display data on the screen.
+These are operators that allow you to perform actions based on a condition.
+
+What is SQL and what is it used for?
+SQL (Structured Query Language) is a programming language used for working with databases.
+SQL is a data type that stores information.
+SQL is a special symbol representing a specific value.
+SQL is the name of a program.
+
+What is an algorithm in programming?
+It is a sequence of steps required to solve a specific task.
+These are operators used to declare variables.
+These are operators that allow you to display data on the screen.
+These are operators that allow you to perform actions based on a condition.
+uhadite i dint know
+
+skibidi
+uapapa
+uapapapapa
+uapapapapapapapapa
+papa
+
+skibidi
+pum
+pum
+rise
+
+skibidi
+pum
+pum
+pum
+pum
+rise
+

@@ -1,0 +1,24 @@
+	 In 1979, Bjarne Stroustrup, a Danish computer scientist, began work on
+"C with Classes", the predecessor to C++. The motivation for creating a new
+language originated from Stroustrup's experience in programming for his PhD
+thesis. Stroustrup found that Simula had features that were very helpful for
+large software development, but the language was too slow for practical use,
+while BCPL was fast but too low-level to be suitable for large software
+development. When Stroustrup started working in AT&T Bell Labs, he had the
+problem of analyzing the UNIX kernel with respect to distributed computing.
+Remembering his PhD experience, Stroustrup set out to enhance the C language
+with Simula-like features. C was chosen because it was general-purpose, fast,
+portable and widely used. As well as C and Simula's influences, other languages
+also influenced this new language, including ALGOL 68, Ada, CLU and ML.
+	
+	 Initially, Stroustrup's "C with Classes" added features to the C
+compiler, Cpre, including classes, derived classes, strong typing, inlining and
+default arguments.
+	
+	 In 1982, Stroustrup started to develop a successor to C with Classes,
+which he named "C++" (++ being the increment operator in C) after going through
+several other names. New features were added, including virtual functions,
+function name and operator overloading, references, constants, type-safe
+free-store memory allocation (new/delete), improved type checking, and BCPL
+style single-line comments with two forward slashes (//). Furthermore,
+Stroustrup developed a new, standalone compiler for C++, Cfront.

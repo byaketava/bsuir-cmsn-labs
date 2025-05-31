@@ -1,0 +1,7 @@
+03924 aibek 12345 1
+05283 kojom 11112000 1
+00002 2 2 2
+00003 3 3 3
+00004 4 4 4
+17774 pelenka lupazapupa 1
+82129 alenka pupazalupa 4
