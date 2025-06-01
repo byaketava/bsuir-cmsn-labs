@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/outline_person_24"
+        android:title="Профиль" />
+    <item
+        android:id="@+id/navigation_create_route"
+        android:icon="@drawable/round_add_24"
+        android:title="Создать маршрут" />
+    <item
+        android:id="@+id/navigation_routes"
+        android:icon="@drawable/round_notes_24"
+        android:title="Мои маршруты" />
+
+</menu>
+

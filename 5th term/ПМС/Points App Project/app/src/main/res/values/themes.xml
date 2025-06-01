@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Points" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Ваши пользовательские настройки темы могут быть добавлены здесь -->
+    </style>
+</resources>
