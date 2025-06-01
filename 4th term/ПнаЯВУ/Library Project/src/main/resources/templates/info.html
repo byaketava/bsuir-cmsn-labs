@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #354747;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100%;
+            background-color: #354747;
+            color: #f9f9fa;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .menu h1 {
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .menu a {
+            color: #f9f9fa;
+            text-decoration: none;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: #a6aba5;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 20px;
+            margin-left: 350px;
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+        }
+
+        .welcome-container {
+            background-color: #a6aba5;
+            border: 2px solid #a6aba5;
+            box-shadow: 0 0 10px rgba(53, 71, 71, 0.3);
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #354747;
+            white-space: pre-line;
+        }
+
+        .message {
+            font-size: 24px;
+            color: #354747;
+            white-space: pre-line;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <h1>Моя библиотека</h1>
+    <ul>
+        <li><a href="/api">Главная</a></li>
+        <li><a href="/api/books">Каталог книг</a></li>
+        <li><a href="/api/authors">Каталог авторов</a></li>
+        <li><a href="/api/genres">Каталог жанров</a></li>
+        <li><a href="/api/info">О проекте</a></li>
+        <li><a href="/api/contacts">Контакты</a></li>
+    </ul>
+</div>
+<div class="container">
+    <h1>О проекте</h1>
+    <div class="welcome-container">
+        <div class="welcome-message">Данный сервис является учебным проектом, который разрабатывался в рамках курса программирования на языках высокого уровня.
+
+        </div>
+        <div class="message">АВТОР: Бекетова Мария
+            УЧЕБНАЯ ГРУППА: 250502
+            СПЕЦИАЛЬНОСТЬ: Вычислительные машины, системы и сети
+            ФАКУЛЬТЕТ: ФКСиС
+            ВУЗ: БГУИР
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

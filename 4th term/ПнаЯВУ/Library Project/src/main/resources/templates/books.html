@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все книги представленные в библиотеке</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #354747;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 20px;
+            margin-left: 350px;
+        }
+
+        .author-text {
+            text-align: left;
+            opacity: 0;
+            transform: rotateY(-180deg);
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .genre-list {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+            opacity: 0;
+            transform: rotateY(-180deg);
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .genre-item {
+            display: inline-block;
+            background-color: #a6aba5;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .book-card-container {
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: #f9f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .book-card {
+            font-family: 'Poppins', sans-serif;
+            flex-basis: calc(33.33% - 20px);
+            padding: 10px;
+            border: 2px solid #c97845;
+            border-radius: 5px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: #da8956;
+            box-shadow: 0 0 10px rgba(53, 71, 71, 0.3);
+            margin-bottom: 10px;
+            position: relative;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .book-card-body {
+            display: flex;
+            flex-direction: column;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .book-card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            margin-top: 10px;
+            backface-visibility: hidden;
+        }
+
+        .book-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .book-card:hover .genre-list,
+        .book-card:hover .author-text {
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .book-card-button {
+            font-family: 'Poppins', sans-serif;
+            flex-basis: calc(33.33% - 20px);
+            padding: 10px;
+            border: 2px solid #c97845;
+            border-radius: 5px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            background-color: #da8956;
+            box-shadow: 0 0 10px rgba(53, 71, 71, 0.3);
+            margin-bottom: 10px;
+            font-size: 50px;
+            color: #354747;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-card-button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #c97845;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .book-card-button:hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #c97845;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .book-card-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #c97845;
+            z-index: 1;
+        }
+
+        .book-card-button:hover {
+            border: 2px solid #c97845;
+            background-color: #da8956;
+            font-size: 70px;
+            color: #354747;
+        }
+
+        .menu-button {
+            padding: 10px 15px;
+            background-color: #f9f9fa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #354747;
+        }
+
+        .menu-button:hover {
+            background-color: #e8e8e9;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100%;
+            background-color: #354747;
+            color: #f9f9fa;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .menu h1 {
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .menu a {
+            color: #f9f9fa;
+            text-decoration: none;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: #a6aba5;
+        }
+
+        .header-actions {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .main-buttons {
+            background-color: #354747;
+            color: #f9f9fa;
+            border-radius: 5px;
+            border: 2px solid #354747;
+        }
+
+        .main-buttons:hover {
+            border: 2px solid #243636;
+            background-color: #243636;
+            border-radius: 5px;
+            color: #f9f9fa;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            z-index: 99;
+            background-color: #354747;
+            color: #f9f9fa;
+            border: 2px solid #354747;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 15px;
+            opacity: 0.5;
+        }
+
+        #back-to-top:hover {
+            border: 2px solid #243636;
+            background-color: #243636;
+            border-radius: 5px;
+            color: #f9f9fa;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <h1>Моя библиотека</h1>
+    <ul>
+        <li><a href="/api">Главная</a></li>
+        <li><a href="/api/books">Каталог книг</a></li>
+        <li><a href="/api/authors">Каталог авторов</a></li>
+        <li><a href="/api/genres">Каталог жанров</a></li>
+        <li><a href="/api/info">О проекте</a></li>
+        <li><a href="/api/contacts">Контакты</a></li>
+    </ul>
+</div>
+<div class="container">
+    <h1>Ваши книги</h1>
+    <div class="header-actions">
+        <button type="button" class="btn change-books-button main-buttons" id="changeBookButton"
+                onclick="showChangeBookModal(event)">Изменить
+        </button>
+        <button type="button" class="btn change-books-button main-buttons" id="deleteBookButton"
+                onclick="showDeleteBookModal(event)">Удалить
+        </button>
+    </div>
+    <div class="book-card-container">
+        <button type="button" class="btn book-card-button">+</button>
+        <div th:each="book : ${books}" class="col-md-4 book-card">
+            <div class="book-card-body">
+                <p class="book-card-title" th:text="${book.title}">Book Title</p>
+                <p class="author-text"><strong>Автор:</strong>
+                    <span th:text="${book.author.name}">Author Name</span></p>
+                <ul class="genre-list">
+                    <li class="genre-item" th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ChangeBookModal" tabindex="-1" aria-labelledby="ChangeBookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ChangeBookModalLabel">Выберите книгу</h5>
+            </div>
+            <div class="modal-body">
+                <form id="ChangeBookForm">
+                    <div class="form-group">
+                        <label for="addBookSelect">Название книги</label>
+                        <select class="form-select" id="addBookSelect" name="addBookSelect" required>
+                            <option disabled selected value="">Заполните поле</option>
+                            <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.title}"></option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  menu-button" onclick="changeBook(event)">Продолжить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DeleteBookModal" tabindex="-1" aria-labelledby="DeleteBookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DeleteBookModalLabel">Выберите книгу</h5>
+            </div>
+            <div class="modal-body">
+                <form id="DeleteBookForm">
+                    <div class="form-group">
+                        <label for="deleteBookSelect">Название книги</label>
+                        <select class="form-select" id="deleteBookSelect" name="deleteBookSelect" required>
+                            <option disabled selected value="">Заполните поле</option>
+                            <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.title}"></option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger menu-button" onclick="showDeleteConfirmationModal()">
+                    Удалить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DeleteConfirmationModal" tabindex="-1" aria-labelledby="DeleteConfirmationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DeleteConfirmationModalLabel">Подтвердите удаление</h5>
+            </div>
+            <div class="modal-body">
+                Вы уверены, что хотите удалить эту книгу?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <form id="deleteForm" method="POST">
+                    <input style="display: none;" id="_method" name="_method" value="DELETE"/>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteButton"
+                            onclick="deleteBook()">Удалить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const addButton = document.querySelector('.book-card-button');
+        const changeButton = document.querySelector('#changeBookButton');
+        const deleteButton = document.querySelector('#deleteBookButton');
+
+        if (addButton) {
+            addButton.addEventListener('click', () => {
+                window.location.href = '/api/books/add';
+            });
+        }
+
+        if (changeButton) {
+            changeButton.addEventListener('click', () => {
+                showChangeBookModal(event);
+            });
+        }
+
+        if (deleteButton) {
+            deleteButton.addEventListener('click', () => {
+                showDeleteBookModal(event);
+            });
+        }
+    });
+
+    function showChangeBookModal(event) {
+        var myModal = new bootstrap.Modal(document.getElementById('ChangeBookModal'), {});
+        myModal.show();
+    }
+
+    function changeBook(event) {
+        event.preventDefault();
+        const selectedBookId = document.getElementById('addBookSelect').value;
+
+        if (!selectedBookId) {
+            alert('Пожалуйста, выберите книгу.');
+            return;
+        }
+
+        window.location.href = `/api/books/update/${selectedBookId}`;
+    }
+
+    function showDeleteBookModal(event) {
+        var myModal = new bootstrap.Modal(document.getElementById('DeleteBookModal'), {});
+        myModal.show();
+    }
+
+    function showDeleteConfirmationModal() {
+        const selectedBookId = document.getElementById('deleteBookSelect').value;
+
+        if (!selectedBookId) {
+            alert('Пожалуйста, выберите книгу');
+            return;
+        }
+
+        var confirmationModal = new bootstrap.Modal(document.getElementById('DeleteConfirmationModal'), {});
+        confirmationModal.show();
+    }
+
+    function deleteBook() {
+        const deleteForm = document.getElementById("deleteForm");
+        const selectedBookId = document.getElementById('deleteBookSelect').value;
+
+        deleteForm.action = `/api/books/delete/${selectedBookId}`;
+        deleteForm.submit();
+    }
+</script>
+<script>
+    function addBackToTopButton() {
+        if (!document.getElementById('back-to-top')) {
+
+            const button = document.createElement('button');
+            button.innerHTML = '↑';
+            button.id = 'back-to-top';
+            button.className = 'btn btn-primary';
+
+            button.onclick = function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+
+            document.body.appendChild(button);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', addBackToTopButton);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

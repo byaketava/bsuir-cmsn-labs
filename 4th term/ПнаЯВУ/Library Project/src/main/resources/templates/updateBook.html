@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение книги из библиотеки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #354747;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9fa;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 20px;
+            margin-left: 350px;
+        }
+
+        .padding-container {
+            padding: 20px;
+        }
+
+        .add-book-container {
+            padding: 10px;
+            background-color: #da8956;
+            border: 2px solid #c97845;
+            box-shadow: 0 0 10px rgba(53, 71, 71, 0.3);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .add-book-body {
+            padding: 20px;
+        }
+
+        .add-book-container form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .add-book-container form input[type="text"],
+        .add-book-container form select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #f9f9fa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .add-book-container form button[type="submit"],
+        button[type="button"] {
+            padding: 10px 15px;
+            background-color: #f9f9fa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #354747;
+        }
+
+        .add-book-container form button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #e8e8e9;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        select option[disabled] {
+            color: gray;
+        }
+
+        .modal-title, .modal-body, .modal-footer {
+            color: #354747;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 100%;
+            background-color: #354747;
+            color: #f9f9fa;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .menu h1 {
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .menu a {
+            color: #f9f9fa;
+            text-decoration: none;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .menu a:hover {
+            background-color: #a6aba5;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <h1>Моя библиотека</h1>
+    <ul>
+        <li><a href="/api">Главная</a></li>
+        <li><a href="/api/books">Каталог книг</a></li>
+        <li><a href="/api/authors">Каталог авторов</a></li>
+        <li><a href="/api/genres">Каталог жанров</a></li>
+        <li><a href="/api/info">О проекте</a></li>
+        <li><a href="/api/contacts">Контакты</a></li>
+    </ul>
+</div>
+<div class="container">
+    <h1>Изменить книгу</h1>
+    <div class="padding-container">
+        <div class="add-book-container">
+            <div class="add-book-body">
+                <form th:action="@{/api/books/update/{id}(id=${book.id})}" method="POST" th:object="${book}">
+                    <label for="title">Название:</label>
+                    <input type="text" th:field="*{title}" id="title" name="title" required
+                           placeholder="Заполните поле"><br><br>
+
+                    <label for="author">Автор:</label>
+                    <select id="author" th:field="*{author.id}" name="author.id" required>
+                        <option disabled selected value="">Заполните поле</option>
+                        <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+                    </select>
+                    <button type="button" class="btn" id="addAuthorButton"
+                            onclick="showAddAuthorModal(event)">Добавить автора
+                    </button>
+                    <br><br>
+
+                    <label>Жанры:</label>
+                    <div class="row">
+                        <div th:each="genre : ${genres}" class="col-md-6">
+                            <div class="form-check">
+                                <label>
+                                    <input class="form-check-input" type="checkbox" name="genres"
+                                           th:value="${genre.id}">
+                                </label>
+                                <label class="form-check-label" th:for="'genre-' + ${genre.id}"
+                                       th:text="${genre.name}"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn" id="addGenreButton"
+                            onclick="showAddGenreModal(event)">Добавить жанр
+                    </button>
+                    <br><br>
+                    <div class="button-container">
+                        <button type="submit" th:href="@{/api/books}">ИЗМЕНИТЬ КНИГУ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма для добавления нового автора -->
+<div class="modal fade" id="addAuthorModal" tabindex="-1" aria-labelledby="addAuthorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAuthorModalLabel">Добавить автора</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addAuthorForm">
+                    <div class="form-group">
+                        <label for="authorName">Имя автора</label>
+                        <input type="text" class="form-control" id="authorName" name="authorName" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" onclick="addAuthor(event)">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма для добавления нового жанра -->
+<div class="modal fade" id="addGenreModal" tabindex="-1" aria-labelledby="addGenreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addGenreModalLabel">Добавить жанр</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addGenreForm">
+                    <div class="form-group">
+                        <label for="genreName">Название жанра</label>
+                        <input type="text" class="form-control" id="genreName" name="genreName" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" onclick="addGenre(event)">Добавить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let author;
+
+    function showAddAuthorModal(event) {
+        event.preventDefault();
+        $('#addAuthorModal').modal('show');
+    }
+
+    function addAuthor(event) {
+        event.preventDefault();
+        const authorName = $('#authorName').val();
+
+        $.ajax({
+            url: '/api/authors/add',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({name: authorName}),
+        }).done(function (response) {
+            console.log('Автор успешно добавлен:', response);
+
+            const authorSelect = $('#author');
+            const newOption = $('<option>', {value: response.id, text: authorName});
+            authorSelect.append(newOption);
+
+            $('#addAuthorModal').modal('hide');
+            $('#authorName').val('');
+            location.reload()
+        });
+    }
+
+    function showAddGenreModal(event) {
+        event.preventDefault();
+        $('#addGenreModal').modal('show');
+    }
+
+    function addGenre(event) {
+        event.preventDefault();
+        const genreName = $('#genreName').val();
+
+        $.ajax({
+            url: '/api/genres/add',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({name: genreName}),
+        }).done(function (response) {
+            console.log('Жанр успешно добавлен:', response);
+
+            const genreSelect = $('.add-book-container form select[name="genres"]');
+            const newOption = $('<option>', {value: response.id, text: genreName});
+            genreSelect.append(newOption);
+
+            $('#addGenreModal').modal('hide');
+            $('#genreName').val('');
+            location.reload()
+        });
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
