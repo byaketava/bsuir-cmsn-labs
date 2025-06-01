@@ -1,0 +1,34 @@
+2025-04-18 05:33:56,453 - Executed: DROP TABLE IF EXISTS g;
+2025-04-18 05:34:44,240 - Executed: INSERT INTO "g" (id) VALUES (%s); with values ['09']
+2025-04-18 05:35:18,157 - Executed: DROP TABLE IF EXISTS g;
+2025-04-18 05:36:03,074 - Executed: DROP TABLE IF EXISTS g;
+2025-04-18 05:36:47,749 - Executed: DROP TABLE IF EXISTS g;
+2025-04-18 06:40:13,449 - Executed: SELECT * FROM arena;
+
+2025-04-18 06:40:15,653 - Executed: SELECT * FROM arena;
+
+2025-04-18 06:40:24,827 - Executed: SELECT * FROM arena;
+
+2025-04-18 07:02:51,777 - Executed: SELECT * FROM arena;
+
+2025-04-18 07:02:54,077 - Executed: SELECT * FROM arena;
+
+2025-04-18 07:03:51,350 - Executed: SELECT * FROM club;
+
+2025-04-18 07:08:40,848 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 07:08:51,691 - Executed SELECT: SELECT * FROM club;
+2025-04-18 07:21:39,816 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 07:28:26,879 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 08:29:25,588 - Executed SELECT: SELECT p.name AS player_name, c.name AS club_name, p.age FROM public.player p INNER JOIN public.club c ON p.club_id = c.id WHERE p.age < 20 ORDER BY p.age;
+2025-04-18 08:30:35,660 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 08:50:47,241 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 08:51:55,257 - Executed: DROP TABLE IF EXISTS g;
+2025-04-18 10:26:38,006 - Executed: UPDATE "coach" SET "id" = %s, "name" = %s, "age" = %s, "country" = %s, "games_count" = %s, "club_id" = %s WHERE "id" = %s; with ['7', 'Бенуа Гру', '57', 'Канада', '63', '11', 7]
+2025-04-18 10:27:33,113 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 10:43:47,320 - Executed: CREATE TABLE "vsdv" (id integer);
+2025-04-18 10:50:54,529 - Executed SELECT: SELECT * FROM arena;
+2025-04-18 10:51:08,263 - Executed SELECT: SELECT p.name AS player_name, c.name AS club_name, p.age FROM public.player p INNER JOIN public.club c ON p.club_id = c.id WHERE p.age < 20 ORDER BY p.age;
+2025-04-18 11:01:43,409 - Executed SELECT: SELECT c.name AS club_name, c.city, c.foundation_year, a.name AS arena_name FROM public.club c INNER JOIN public.arena a ON c.id = a.club_id WHERE c.country = 'Беларусь' ORDER BY c.foundation_year;
+2025-04-18 11:24:48,094 - Executed: DROP TABLE IF EXISTS vsdv;
+2025-04-18 11:36:23,563 - Executed SELECT: SELECT p.name AS player_name, p.number, c.name AS club_name FROM public.player p INNER JOIN public.club c ON p.club_id = c.id WHERE p."number" > 80 AND c.city = 'Москва';
+2025-04-18 11:36:57,282 - Executed SELECT: SELECT * FROM arena;
